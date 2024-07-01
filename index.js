@@ -13,6 +13,7 @@ const getRandomObjects = (array, num) => {
 
 wss.on("connection", (ws) => {
   console.log("Client connected");
+
   const sendRandomObjects = () => {
     const randomObjects = getRandomObjects(status, 8);
     ws.send(JSON.stringify(randomObjects));
@@ -20,12 +21,32 @@ wss.on("connection", (ws) => {
 
   sendRandomObjects();
 
-  // Send objects every 5 minutes
+  // Send objects every 5 seconds
   const interval = setInterval(sendRandomObjects, 1000 * 5);
 
   ws.on("close", () => {
     clearInterval(interval);
     console.log("Client disconnected");
+  });
+
+  // Error handling
+  ws.on("error", (error) => {
+    console.error("WebSocket error:", error);
+  });
+
+  // Keep-alive mechanism
+  const pingInterval = setInterval(() => {
+    if (ws.readyState === WebSocket.OPEN) {
+      ws.ping();
+    }
+  }, 1000 * 30); // Ping every 30 seconds
+
+  ws.on("pong", () => {
+    console.log("Pong received");
+  });
+
+  ws.on("close", () => {
+    clearInterval(pingInterval);
   });
 });
 
