@@ -20,14 +20,19 @@ wss.on("connection", (ws) => {
 
   sendRandomObjects();
 
-  // Send objects every 5 minutes (300,000 milliseconds)
-  const interval = setInterval(sendRandomObjects, 1000 * 10);
+  // Send objects every 5 minutes
+  const interval = setInterval(sendRandomObjects, 1000 * 5);
 
   ws.on("close", () => {
     clearInterval(interval);
     console.log("Client disconnected");
   });
 });
+
+app.get("/health", (req, res) => {
+  res.send("Server is healthy");
+});
+
 
 server.listen(8080, () => {
   console.log("Server is listening on port 8080");
