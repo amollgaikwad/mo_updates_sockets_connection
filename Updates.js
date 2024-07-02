@@ -1,12 +1,14 @@
 let status = [
   {
     type: "AuctionCountDown",
+    mia: "museo",
     data: {
       time_remaining: 120,
     },
   },
   {
     type: "BidStatus",
+    mia: "museo",
     data: {
       current_highest_bid: 5000,
       user_status: "leading",
@@ -14,18 +16,21 @@ let status = [
   },
   {
     type: "AuctionParticipation",
+    mia: "museo",
     data: {
       participants: 120,
     },
   },
   {
     type: "NewAuctionNotification",
+    mia: "museo",
     data: {
       new_auctions: 5,
     },
   },
   {
     type: "PaymentStatus",
+    mia: "museo",
     data: {
       transaction_id: "TX12345",
       status: "completed",
@@ -33,18 +38,21 @@ let status = [
   },
   {
     type: "KYCVerificationStatus",
+    mia: "museo",
     data: {
       kyc_status: "approved",
     },
   },
   {
     type: "WalletBalanceUpdate",
+    mia: "museo",
     data: {
       wallet_balance: 1500.75,
     },
   },
   {
     type: "ArtPiecePopularity",
+    mia: "museo",
     data: {
       art_piece_id: "ART123",
       views: 200,
@@ -53,6 +61,7 @@ let status = [
   },
   {
     type: "LiveBiddingActivity",
+    mia: "museo",
     data: [
       {
         time: "10:01",
@@ -78,6 +87,7 @@ let status = [
   },
   {
     type: "AuctionResults",
+    mia: "museo",
     data: {
       total_sales: 10,
       total_revenue: 50000,
@@ -85,6 +95,7 @@ let status = [
   },
   {
     type: "FavoriteArtAlerts",
+    mia: "museo",
     data: [
       {
         art_piece_id: "ART789",
@@ -106,6 +117,7 @@ let status = [
   },
   {
     type: "SystemNotifications",
+    mia: "museo",
     data: {
       notifications: [
         {
@@ -121,6 +133,7 @@ let status = [
   },
   {
     type: "AuctionStartReminder",
+    mia: "museo",
     data: [
       {
         auction_id: "AUC123",
@@ -138,6 +151,7 @@ let status = [
   },
   {
     type: "PersonalMessages",
+    mia: "museo",
     data: {
       messages: [
         {
